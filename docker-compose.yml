@@ -1,0 +1,14 @@
+version: "3.9"
+# Defindos os container de forma individual
+services:
+  # container da api 
+  api:
+    # O container será construido a partir do dockerfile neste nivel da pasta
+    build: .
+    container_name: api-devops
+    # porta em que a aplicação ficara exposta e rodara
+    ports:
+      - "5000:5000"
+    # arquivo de variaveis que deve ser ignorado por questões de segurança ao fazer o deploy
+    env_file:
+      - .env
